@@ -1,15 +1,12 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-import pickle
+import joblib  # Use joblib instead of pickle
 
 # ---------------------------
-# Load the pre-trained XGBoost model using pickle
+# Load the pre-trained XGBoost model using joblib
 # ---------------------------
-
-with open('xgboost_model.pkl', 'rb') as f:
-    model = pickle.load(f)
-
+model = joblib.load('xgboost_model.joblib')  # Change to load from .joblib
 
 # ---------------------------
 # App Title and Description
