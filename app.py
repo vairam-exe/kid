@@ -42,9 +42,12 @@ input_data = pd.DataFrame({
 })
 
 # Normalize the input data (important! Must match training data normalization)
-data = pd.read_csv('new_model.csv')  # To get min and max value
-for x in data.columns:
+data = pd.read_csv('new_model.csv') 
+feature_cols = data.columns.drop('Class') # To get min and max value
+for x in feature_cols:  # Iterate through features only
     input_data[x] = (input_data[x] - data[x].min()) / (data[x].max() - data[x].min())
+
+# ... (rest of your code)
 
 # Prediction
 if st.button('Predict'):
